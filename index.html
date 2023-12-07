@@ -4,6 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Audiowide&family=Electrolize&family=Exo:wght@300;400&family=Montserrat:wght@300;400;500&family=Orbitron:wght@400;500&family=Roboto:wght@300;400&family=Russo+One&display=swap"
+        rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/main.css">
     <title>Document</title>
@@ -11,9 +17,9 @@
 
 <body>
     <div class="navbar">
-        <div><img src="path-to-logo-image.jpg" alt="ElectroBeat Fest Logo" height="50"></div>
-        <input type="checkbox" id="menu-toggle" class="menu">
-        <label for="menu-toggle" class="menu-icon">&#9776;</label>
+        <div><img src="images/logo.png" alt="ElectroBeat Fest Logo" height="50"></div>
+        <input type="checkbox" id="menu-toggle" class="menu" hidden>
+        <label for="menu-toggle" class="menu-icon" hidden>&#9776;</label>
         <div class="menu-items">
             <a href="#info">Festival Info</a>
             <a href="#tickets">Tickets</a>
@@ -22,11 +28,13 @@
         </div>
     </div>
     <div class="hero">
-        <div>
-          <h1>ElectroBeat Fest</h1>
-          <p>The ultimate electronic music experience</p>
+        <img src="images/hero.png" alt="Hero Image">
+        <div class="hero-text">
+            <h1>ElectroBeat Festival</h1>
+            <p>The ultimate electronic music experience</p>
         </div>
-      </div>
+
+    </div>
 </body>
 
 </html>

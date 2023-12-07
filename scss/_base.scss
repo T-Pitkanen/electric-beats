@@ -1,0 +1,151 @@
+$font-russo: "Russo One", sans-serif;
+$font-exo: "Exo", sans-serif;
+$font-montserrat: "Montserrat", sans-serif;
+
+$color-primary-blue: #4d9de0; //main cta + active buttons
+$color-primary-pink: #bc6ff1; //headlines + highlight
+
+$color-secondary-pink: #ef4db6; //secondary buttons + hover + attention
+
+$color-accent-green: #3ef4d7; //links, points, small things
+$color-accent-yellow: #f39f18; //?
+
+$color-background-purple: #2d142c; //main + secondary background
+$color-background-blue: #090c16; //other sections
+
+$color-text: #d1d1d1; //
+$color-white: #ffffff;
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: $color-background-blue;
+}
+
+//MIXINS
+@mixin tablet {
+    @media (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin font-size($size) {
+    font-size: $size;
+   
+    @media (min-width: 1024px) {
+        font-size: $size * 0.7;
+    }
+}
+
+@mixin flex-column-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flex-row-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin button-base {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: $font-montserrat;
+    font-weight: 500;
+}
+
+@mixin primary-button {
+    @include button-base;
+    background-color: $color-primary-blue;
+    color: white;
+
+    &:hover {
+        background-color: $color-secondary-pink;
+        transition: all 0.3s ease-in-out;
+        text-decoration: underline;
+    }
+}
+
+@mixin secondary-button {
+    @include button-base;
+    background-color: $color-primary-purple;
+    color: white;
+
+    &:hover {
+        background-color: $color-secondary-pink;
+        transition: all 0.3s ease-in-out;
+        text-decoration: underline;
+    }
+}
+
+@mixin links {
+    color: $color-accent-green;
+    text-decoration: none;
+    font-weight: bolder;
+    letter-spacing: 2px;
+    font-family: $font-montserrat;
+    cursor: pointer;
+
+    &:hover {
+        color: $color-secondary-pink;
+        transition: all 0.3s ease-in-out;
+    }
+}
+
+@mixin heading {
+    font-family: $font-russo;
+    font-size: 2rem;
+    font-weight: bold;
+    color: $color-white;
+}
+
+@mixin subheading {
+    font-family: $font-russo;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    font-weight: bold;
+    color: $color-secondary-pink;
+}
+
+//SELECTORS
+
+%fullWidth {
+    width: 100%;
+    height: 100%;
+}
+
+%card {
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    color: #333;
+
+    &:hover {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: box-shadow 0.3s ease-in-out;
+    }
+
+    @media (min-width: 768px) {
+        padding: 10px;
+    }
+
+    @media (min-width: 1240px) {
+        padding: 20px;
+    }
+}
