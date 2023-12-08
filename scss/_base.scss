@@ -11,7 +11,9 @@ $color-accent-green: #3ef4d7; //links, points, small things
 $color-accent-yellow: #f39f18; //?
 
 $color-background-purple: #2d142c; //main + secondary background
+$color-background-purple-transparent: #2d142c86; //main + secondary background
 $color-background-blue: #090c16; //other sections
+$color-background-blue-transparent: #090c1681; //other sections
 
 $color-text: #d1d1d1; //
 $color-white: #ffffff;
@@ -40,7 +42,7 @@ body {
 
 @mixin font-size($size) {
     font-size: $size;
-   
+
     @media (min-width: 1024px) {
         font-size: $size * 0.7;
     }
@@ -108,14 +110,13 @@ body {
 
 @mixin heading {
     font-family: $font-russo;
-    font-size: 2rem;
     font-weight: bold;
     color: $color-white;
 }
 
 @mixin subheading {
     font-family: $font-russo;
-    font-size: 1rem;
+
     letter-spacing: 2px;
     font-weight: bold;
     color: $color-secondary-pink;
@@ -128,13 +129,106 @@ body {
     height: 100%;
 }
 
+
+%smallCard {
+    
+    // background: rgb(216, 211, 255);
+    // background: linear-gradient(
+    //     90deg,
+    //     rgba(216, 211, 255, 1) 0%,
+    //     rgba(194, 236, 254, 1) 48%,
+    //     rgba(187, 244, 255, 1) 100%
+    // );
+    
+    border: 3px solid #ef4db6;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: $color-background-blue;
+    
+
+
+
+    h3 {
+        font-family: $font-russo;
+        font-weight: bold;
+        color: $color-background-blue;
+        color: #ffffff;
+    }
+
+    span {
+        font-weight: bold;
+        font-family: $font-montserrat;
+        color: rgb(148, 39, 239);
+        background: -webkit-linear-gradient(90deg, #9427ef, #6699f7);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    p{
+        font-family: $font-montserrat;
+        font-weight: bold;
+        color: $color-background-blue;
+        color: #ffffff;
+    }
+
+    &:hover {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: box-shadow 0.3s ease-in-out;
+    }
+}
+
 %card {
-    border: 1px solid #e0e0e0;
-    border-radius: 4px;
-    padding: 5px;
+    background: rgb(216, 211, 255);
+    background: linear-gradient(
+        90deg,
+        rgba(216, 211, 255, 1) 0%,
+        rgba(194, 236, 254, 1) 48%,
+        rgba(187, 244, 255, 1) 100%
+    );
+    border: 3px solid #3ef4d7;
+    border-radius: 10px;
+    padding: 1rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     background-color: #fff;
     color: #333;
+
+    h2 {
+        font-family: $font-russo;
+        font-weight: bold;
+        color: $color-background-blue;
+    }
+
+    span {
+        color: rgb(148, 39, 239);
+        background: -webkit-linear-gradient(90deg, #9427ef, #75a3f8);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    p {
+        font-family: $font-montserrat;
+        font-weight: 500;
+        color: $color-background-blue;
+    }
+
+    .card-buttons {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 3rem;
+    }
+
+    button {
+        color: white;
+        font-weight: bold;
+        font-family: $font-montserrat;
+        border: none;
+        border-radius: 10px;
+        padding: 0.5rem 1rem;
+        background: rgb(216, 211, 255);
+        background: linear-gradient(90deg, #f801c8, #9b00e0, #3007e0);
+    }
 
     &:hover {
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);

@@ -1,0 +1,62 @@
+.info-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    @extend %card;
+    width: 80%;
+    letter-spacing: 1.75;
+
+    .card-header h2{
+        padding-bottom: 2vh;
+        font-size: 28px;
+    }
+
+    .card-header p {
+        font-size: 16px;
+        font-weight: bolder;
+    }
+
+    button{
+        font-size: 15px;
+    }
+}
+
+
+.price-card{
+    width: 35%;
+    @extend %smallCard;
+    @include flex-column-center;
+    gap: 0.75rem;
+    font-size: 20px;
+    letter-spacing: 1.75;
+    
+
+    h3{
+        font-size: 22px;
+        text-align: center;
+        letter-spacing: 2px;
+    }
+
+}
+
+
+.artist-card{
+    display: flex;
+    color: white;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 3rem;
+
+    img{
+        width: 25vw;
+        object-fit: cover;
+    }
+
+    h3, p{
+        font-family: $font-exo;
+        color: white;
+        letter-spacing: 2px;
+    }
+
+}
