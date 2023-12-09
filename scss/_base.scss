@@ -48,6 +48,8 @@ body {
     }
 }
 
+
+//FLEX
 @mixin flex-column-center {
     display: flex;
     flex-direction: column;
@@ -60,6 +62,48 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+@mixin flex-layout($direction: null, $justify: null, $align: null, $gap: 0) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+    gap: $gap;
+}
+
+
+//Styling
+@mixin font-styling($family: null, $size: null, $weight: null, $spacing: null, $color: null) {
+    font-family: $family;
+    font-size: $size;
+    font-weight: $weight;
+    letter-spacing: $spacing;
+    color: $color;
+    
+}
+
+@mixin input-styling($padding: null, $borderRadius: null, $border: null, $background: null) {
+    padding: $padding;
+    border-radius: $borderRadius;
+    border: $border;
+    background: $background;
+}
+
+
+@mixin absolute-position($top: 0, $left: 0) {
+    position: absolute;
+    top: $top;
+    left: $left;
+}
+
+
+@mixin box-shadow($x: 0, $y: 2px, $blur: 4px, $color: rgba(65, 65, 65, 0.096)) {
+    box-shadow: $x $y $blur $color;
+}
+
+
+
+//Buttons
 
 @mixin button-base {
     padding: 0.5rem 1rem;
@@ -140,7 +184,7 @@ body {
     //     rgba(187, 244, 255, 1) 100%
     // );
     
-    border: 3px solid #ef4db6;
+    border: 3px solid #fe019a;
     border-radius: 10px;
     padding: 1rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);

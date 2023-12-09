@@ -1,13 +1,10 @@
 .info-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 2rem;
+    @include flex-layout(column, center, center, 2rem);
     @extend %card;
     width: 80%;
     letter-spacing: 1.75;
 
-    .card-header h2{
+    .card-header h2 {
         padding-bottom: 2vh;
         font-size: 28px;
     }
@@ -17,46 +14,71 @@
         font-weight: bolder;
     }
 
-    button{
+    button {
         font-size: 15px;
     }
 }
 
-
-.price-card{
+.price-card {
     width: 35%;
     @extend %smallCard;
-    @include flex-column-center;
-    gap: 0.75rem;
+    @include flex-layout(column, center, center, 0.75rem);
     font-size: 20px;
     letter-spacing: 1.75;
-    
 
-    h3{
+    h3 {
         font-size: 22px;
         text-align: center;
         letter-spacing: 2px;
     }
-
 }
 
+.artist-card {
 
-.artist-card{
-    display: flex;
     color: white;
-    align-items: center;
-    justify-content: space-evenly;
-    gap: 3rem;
+    @include flex-layout(row, space-evenly, center, 3rem);
 
-    img{
+    img {
         width: 25vw;
         object-fit: cover;
     }
 
-    h3, p{
+    h3,
+    p {
         font-family: $font-exo;
         color: white;
         letter-spacing: 2px;
     }
+}
 
+.newsletter {
+    margin-top: 5vh;
+    @include flex-column-center;
+    color: white;
+    gap: 1rem;
+
+    form {
+        @include flex-layout(column, center, center, 1rem);
+        font-family: $font-montserrat;
+
+        .terms {
+            font-size: 14px;
+        }
+
+        input[type="email"] {
+            @include input-styling(0.5rem 1rem, 10px, 3px solid #fe019a, null);
+        }
+
+        input[type="checkbox"] {
+            // styles for the checkbox
+        }
+
+        input[type="submit"] {
+            color: white;
+            font-weight: bold;
+            font-family: $font-montserrat;
+
+            @include input-styling(0.5rem 1rem, 10px, none, linear-gradient(90deg, #f801c8, #9b00e0, #3007e0));
+        }
+    }
 }
