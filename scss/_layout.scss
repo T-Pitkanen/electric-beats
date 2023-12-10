@@ -2,7 +2,7 @@
 .navbar {
   background-color: $color-background-blue;
 
-  @include flex-layout(space-around, center);
+  @include flex-layout(row, space-between, center);
 
   width: 100%;
   height: 5vh;
@@ -83,6 +83,11 @@ a {
   display: flex;
   align-items: flex-end;
 
+  @include desktop {
+    height: 90vh;
+    justify-content: center;
+  }
+
   img {
     width: 100%;
     height: 100%;
@@ -96,13 +101,29 @@ a {
     background-color: $color-background-blue-transparent;
     padding-bottom: 5vh;
     padding-left: 5vw;
+
+    @include desktop {
+      padding-bottom: 2vh;
+      padding-top: 2vh;
+     padding-left: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem
+    }
   }
 
   h1 {
     @include heading;
+
     font-size: (1.75rem);
     z-index: 1;
     margin-bottom: 1vh;
+
+    @include desktop {
+      font-size: 45px;
+    }
   }
 
   p {
@@ -110,6 +131,12 @@ a {
     z-index: 1;
     font-size: (0.8rem * 1);
     width: 60%;
+
+    @include desktop {
+      font-size: 30px;
+      width: auto;
+      color: $color-accent-green;
+    }
   }
 }
 
@@ -131,6 +158,11 @@ a {
   justify-content: center;
   flex-wrap: wrap;
   gap: 1.25rem;
+
+  @include desktop{
+    width: 50%;
+    gap: 3rem;
+  }
 }
 
 //Artists
@@ -143,9 +175,24 @@ a {
   padding: 2rem 0;
   letter-spacing: 3px;
 
+  @include tablet {
+    gap: 5rem;
+  }
+  @include desktop {
+    gap: 7rem;
+    width: 45%;
+  }
+
   h4 {
-    @include font-styling($font-russo, 25px, 400, 3px, white );
+    @include font-styling($font-russo, 25px, 400, 3px, white);
     border-bottom: 2px solid #ef4db6;
+
+    @include tablet {
+      font-size: 35px;
+    }
+    @include desktop {
+      font-size: 37px;
+    }
   }
 }
 
@@ -153,6 +200,14 @@ a {
 
 .news {
   width: 90%;
+
+
+
+
+  @include desktop {
+    margin-top: 10vh;
+    width: 45%;
+  }
 
   .news-header {
     @include flex-column-center;
@@ -162,7 +217,14 @@ a {
 
   .news-header h2 {
     // @include heading;
-    @include font-styling($font-russo, 30px, 400, 3px, $color-accent-green, );
+    @include font-styling($font-russo, 30px, 400, 3px, $color-accent-green);
+
+    @include tablet {
+      font-size: 40px;
+    }
+    @include desktop {
+      font-size: 40px;
+    }
   }
 
   .news-header p {
@@ -170,6 +232,13 @@ a {
     font-family: $font-montserrat;
     letter-spacing: 1.75px;
     font-size: 16px;
+
+    @include tablet {
+      font-size: 18px;
+    }
+    @include desktop {
+      font-size: 18px;
+    }
   }
 }
 
@@ -179,15 +248,33 @@ footer {
   margin-top: 10vh;
   position: relative;
 
+  @include desktop{
+    margin-top: 20vh;
+  }
+
   .footer-logo {
     @include font-styling($font-russo, 30px, 400, 2px);
     @include flex-layout(center, center, 2rem);
     color: white;
+
+    @include tablet {
+      font-size: 40px;
+    }
+    @include desktop {
+      font-size: 40px;
+    }
   }
 
   p {
     @include font-styling($font-montserrat, 12px, 400, 1.5px);
     color: white;
+
+    @include tablet {
+      font-size: 17px;
+    }
+    @include desktop {
+      font-size: 17px;
+    }
   }
 
   &::before {
@@ -206,76 +293,114 @@ footer {
     @include flex-layout(column, center, center, 2rem);
     text-align: center;
   }
-  .footer-social{
+  .footer-social {
     display: flex;
+
+    @include desktop{
+      gap: 2rem;
+    }
   }
-  
+
   .footer-social a {
     font-size: 30px;
+
+    @include tablet {
+      font-size: 40px;
+    }
+    @include desktop {
+      font-size: 40px;
+    }
   }
 }
 
 // RESPONSIVE
-@include desktop {
-  .navbar {
-    background-color: $color-background-blue;
-    display: flex;
-    align-items: center;
-    gap: 5rem;
-    width: 100%;
-    padding: 0 5rem;
-    position: fixed;
-    box-shadow: 0 2px 4px rgba(65, 65, 65, 0.096);
 
-    .menu-items {
-      width: 40%;
-      display: flex;
-      gap: 3rem;
+@include tablet {
+  .navbar {
+    display: none;
+  }
+
+  .navbar-big {
+    width: 100%;
+    position: fixed;
+    background-color: $color-background-blue;
+    height: 8vh;
+    @include flex-layout(row, space-around, center, 0);
+
+    span {
+      @include font-styling($font-russo, 1.5rem, 400, 2px, $color-accent-green);
+    }
+
+    .nav-links {
+      @include flex-layout(row, center, center, 2rem);
     }
 
     a {
       @include links;
-      @include font-size(1rem);
-    }
-
-    img {
-      height: 70px;
+      @include font-styling($font-montserrat, 1.25rem, 600, 2px);
+      padding: 0;
     }
   }
 
   .hero {
-    position: relative;
-    width: 100%;
-    height: 90vh;
-    overflow: hidden;
-    z-index: -1;
-    display: flex;
-    align-items: flex-end;
+    height: 70vh;
 
     img {
-      // @extend %fullWidth;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: -1;
+      @include absolute-position();
     }
 
     .hero-text {
-      padding: 2rem 5rem;
+      padding: 2rem 3rem;
     }
 
     h1 {
       @include heading;
-      z-index: 1;
-      margin-bottom: 2vh;
+      font-size: (2rem * 1.5);
     }
 
     p {
       @include subheading;
-      z-index: 1;
+      font-size: (1rem * 1.5);
+    }
+  }
+}
+
+.content {
+  width: 100%;
+  margin-top: 5vh;
+}
+
+.info {
+  @include flex-column-center;
+  gap: 4rem;
+}
+
+
+//DESKTOP
+@include desktop {
+  .navbar {
+    display: none;
+  }
+
+  .navbar-big {
+    width: 100%;
+    position: fixed;
+    background-color: $color-background-blue;
+    height: 10vh;
+    @include flex-layout(row, space-around, center, 0);
+
+    span {
+      @include font-styling($font-russo, 1.75rem, 400, 2px, $color-accent-green);
+    }
+
+    .nav-links {
+      @include flex-layout(row, center, center, 4rem);
+    }
+
+    a {
+      @include links;
+      @include font-styling($font-montserrat, 1.25rem, 600, 2px);
+      padding: 0;
     }
   }
 }

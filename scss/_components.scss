@@ -4,43 +4,85 @@
     width: 80%;
     letter-spacing: 1.75;
 
+    @include desktop {
+        width: 40%;
+    }
+
     .card-header h2 {
         padding-bottom: 2vh;
         font-size: 28px;
+
+        @include tablet {
+            font-size: 27px;
+        }
+
+        @include desktop {
+            font-size: 35px;
+        }
     }
 
     .card-header p {
         font-size: 16px;
         font-weight: bolder;
-    }
 
-    button {
-        font-size: 15px;
+        @include desktop {
+            font-size: 18px;
+        }
     }
 }
 
+//SMALL CARD
 .price-card {
     width: 35%;
     @extend %smallCard;
     @include flex-layout(column, center, center, 0.75rem);
-    font-size: 20px;
-    letter-spacing: 1.75;
+    letter-spacing: 1.5px;
 
+    @include desktop {
+        gap: 1.5rem;
+    }
     h3 {
-        font-size: 22px;
         text-align: center;
         letter-spacing: 2px;
     }
 }
 
+//ARTISTS
 .artist-card {
-
     color: white;
     @include flex-layout(row, space-evenly, center, 3rem);
+
+
+    .artist-info {
+        @include tablet {
+            @include flex-layout(column, center, center, 2rem);
+        }
+        @include desktop {
+            @include flex-layout(column, center, center, 3rem);
+        }
+    }
+   
+
+    @include tablet {
+        width: 100%;
+        gap: 2rem;
+    }
+
+    @include desktop {
+        width: 100%;
+        gap: 3rem;
+    }
 
     img {
         width: 25vw;
         object-fit: cover;
+
+        @include tablet {
+            width: 23vw;
+        }
+        @include desktop {
+            width: 10vw;
+        }
     }
 
     h3,
@@ -49,13 +91,36 @@
         color: white;
         letter-spacing: 2px;
     }
+
+    h3 {
+        @include tablet {
+            font-size: 25px;
+        }
+        @include desktop {
+            font-size: 27px;
+        }
+    }
+
+    p {
+        @include tablet {
+            font-size: 20px;
+        }
+        @include desktop {
+            font-size: 25px;
+        }
+    }
 }
 
+// NEWS
 .newsletter {
     margin-top: 5vh;
     @include flex-column-center;
     color: white;
     gap: 1rem;
+
+    @include desktop{
+        gap: 2rem;
+    }
 
     form {
         @include flex-layout(column, center, center, 1rem);
@@ -63,22 +128,69 @@
 
         .terms {
             font-size: 14px;
+
+            @include tablet {
+                font-size: 16px;
+            }
+            @include desktop {
+                font-size: 18px;
+            }
         }
 
         input[type="email"] {
             @include input-styling(0.5rem 1rem, 10px, 3px solid #fe019a, null);
-        }
 
-        input[type="checkbox"] {
-            // styles for the checkbox
+            @include tablet {
+                font-size: 20px;
+                width: 100%;
+                padding: 0.75rem;
+            }
+            @include desktop {
+                font-size: 20px;
+                width: 100%;
+                padding: 0.75rem;
+            }
         }
 
         input[type="submit"] {
             color: white;
             font-weight: bold;
             font-family: $font-montserrat;
+            cursor: pointer;
 
             @include input-styling(0.5rem 1rem, 10px, none, linear-gradient(90deg, #f801c8, #9b00e0, #3007e0));
+
+            @include tablet {
+                font-size: 18px;
+                padding: 0.75rem 1rem;
+            }
+            @include desktop {
+                font-size: 18px;
+                padding: 0.75rem 1rem;
+            }
         }
+    }
+}
+
+//RESPOSIVE
+
+@include tablet {
+    .info-card {
+        @include flex-layout(column, center, center, 2rem);
+        @extend %card;
+        width: 80%;
+        letter-spacing: 1.25px;
+
+        .card-header {
+            width: 100%;
+        }
+
+        .card-header p {
+            font-size: 20px;
+        }
+    }
+
+    .price-card {
+        width: 40%;
     }
 }

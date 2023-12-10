@@ -21,6 +21,7 @@ $color-white: #ffffff;
 * {
     margin: 0;
     padding: 0;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -28,14 +29,21 @@ body {
 }
 
 //MIXINS
+
+// @mixin  {
+//     @media (min-width: 576px) {
+//         @content;
+//     }
+// }
+
 @mixin tablet {
-    @media (min-width: 768px) {
+    @media (min-width: 768px) and (max-width: 1239px) {
         @content;
     }
 }
 
 @mixin desktop {
-    @media (min-width: 1024px) {
+    @media (min-width: 1240px) {
         @content;
     }
 }
@@ -47,7 +55,6 @@ body {
         font-size: $size * 0.7;
     }
 }
-
 
 //FLEX
 @mixin flex-column-center {
@@ -71,7 +78,6 @@ body {
     gap: $gap;
 }
 
-
 //Styling
 @mixin font-styling($family: null, $size: null, $weight: null, $spacing: null, $color: null) {
     font-family: $family;
@@ -79,7 +85,6 @@ body {
     font-weight: $weight;
     letter-spacing: $spacing;
     color: $color;
-    
 }
 
 @mixin input-styling($padding: null, $borderRadius: null, $border: null, $background: null) {
@@ -89,19 +94,15 @@ body {
     background: $background;
 }
 
-
 @mixin absolute-position($top: 0, $left: 0) {
     position: absolute;
     top: $top;
     left: $left;
 }
 
-
 @mixin box-shadow($x: 0, $y: 2px, $blur: 4px, $color: rgba(65, 65, 65, 0.096)) {
     box-shadow: $x $y $blur $color;
 }
-
-
 
 //Buttons
 
@@ -173,31 +174,32 @@ body {
     height: 100%;
 }
 
-
 %smallCard {
-    
-    // background: rgb(216, 211, 255);
-    // background: linear-gradient(
-    //     90deg,
-    //     rgba(216, 211, 255, 1) 0%,
-    //     rgba(194, 236, 254, 1) 48%,
-    //     rgba(187, 244, 255, 1) 100%
-    // );
-    
+
     border: 3px solid #fe019a;
     border-radius: 10px;
     padding: 1rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     background-color: $color-background-blue;
-    
 
 
-
+    @include desktop{
+        padding: 1.5rem 1rem;
+    }
     h3 {
+        // font-size: 22px;
         font-family: $font-russo;
         font-weight: bold;
         color: $color-background-blue;
         color: #ffffff;
+
+        @include tablet {
+            font-size: 28px;
+        }
+
+        @include desktop {
+            font-size: 30px;
+        }
     }
 
     span {
@@ -207,13 +209,29 @@ body {
         background: -webkit-linear-gradient(90deg, #9427ef, #6699f7);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
+
+        @include tablet {
+            font-size: 25px;
+        }
+
+        @include desktop {
+            font-size: 28px;
+        }
     }
 
-    p{
+    p {
         font-family: $font-montserrat;
         font-weight: bold;
         color: $color-background-blue;
         color: #ffffff;
+
+        @include tablet {
+            font-size: 25px;
+        }
+
+        @include desktop {
+            font-size: 25px;
+        }
     }
 
     &:hover {
@@ -237,10 +255,18 @@ body {
     background-color: #fff;
     color: #333;
 
+    .card-header {
+        @include desktop{
+            width: 100%;
+        }
+    }
+
     h2 {
         font-family: $font-russo;
         font-weight: bold;
         color: $color-background-blue;
+
+       
     }
 
     span {
@@ -254,6 +280,13 @@ body {
         font-family: $font-montserrat;
         font-weight: 500;
         color: $color-background-blue;
+
+        @include tablet {
+            font-size: 18px;
+        }
+        @include desktop {
+            font-size: 20px;
+        }
     }
 
     .card-buttons {
@@ -261,6 +294,10 @@ body {
         justify-content: space-between;
         align-items: center;
         gap: 3rem;
+
+        @include tablet {
+            gap: 10rem;
+        }
     }
 
     button {
@@ -272,7 +309,20 @@ body {
         padding: 0.5rem 1rem;
         background: rgb(216, 211, 255);
         background: linear-gradient(90deg, #f801c8, #9b00e0, #3007e0);
+        font-size: 15px;
+        cursor: pointer;
+    
+        
+        @include tablet {
+            font-size: 20px;
+            padding: 1rem 2rem;
+        }
+        @include desktop {
+            font-size: 21px;
+            padding: 1rem 2rem;
+        }
     }
+
 
     &:hover {
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -280,10 +330,10 @@ body {
     }
 
     @media (min-width: 768px) {
-        padding: 10px;
+        padding: 1.5rem;
     }
 
     @media (min-width: 1240px) {
-        padding: 20px;
+        padding: 2rem;
     }
 }
