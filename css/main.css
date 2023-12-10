@@ -132,6 +132,11 @@ footer::before {
     gap: 10rem;
   }
 }
+@media (min-width: 1240px) {
+  .info-card .card-buttons {
+    gap: 10rem;
+  }
+}
 .info-card button {
   color: white;
   font-weight: bold;
